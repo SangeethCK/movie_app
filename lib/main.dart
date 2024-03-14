@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/core/multi_provider_list.dart';
 import 'package:movie_app/core/routes/navigator.dart';
 import 'package:movie_app/core/routes/route_generator.dart';
 import 'package:movie_app/core/routes/routes.dart';
-import 'package:movie_app/prsentation/screens/home/screen_home.dart';
+import 'package:movie_app/prsentation/screens/splash_screen/screen_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -22,14 +23,16 @@ class MyApp extends StatelessWidget {
         builder: (p0, p1, p2) {
           return MaterialApp(
             title: 'Flutter Demo',
-              onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
-        initialRoute: initialRoutes,
-        navigatorKey: routeKey,
+            onGenerateRoute: (settings) =>
+                RouteGenerator.generateRoute(settings),
+            initialRoute: initialRoutes,
+            navigatorKey: routeKey,
             theme: ThemeData(
+              textTheme: GoogleFonts.poppinsTextTheme(),
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const ScreenHome(),
+            home: const SplashScreen(),
           );
         },
       ),

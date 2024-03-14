@@ -3,6 +3,7 @@ import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/domain/models/movie_details_response.dart';
 import 'package:movie_app/prsentation/screens/home/screen_home.dart';
 import 'package:movie_app/prsentation/screens/movie_details/movie_details.dart';
+import 'package:movie_app/prsentation/screens/splash_screen/screen_splash.dart';
 
 
 class RouteGenerator {
@@ -11,8 +12,9 @@ class RouteGenerator {
 
     switch (settings.name) {
       case initialRoutes:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case home:
         return MaterialPageRoute(builder: (_) => const ScreenHome());
-
       case movieDetails :
         if (args is MovieDetails) {
           return MaterialPageRoute(builder: (_) => ScreenMovieDetails(id: args.id?.toInt()??0));

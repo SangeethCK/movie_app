@@ -1,4 +1,6 @@
 
+// ignore_for_file: constant_identifier_names
+
 class MoviesResponse {
     int? id;
     String? url;
@@ -104,9 +106,9 @@ class MoviesResponse {
 }
 
 class Country {
-    Name? name;
-    Code? code;
-    Timezone? timezone;
+    String? name;
+    String? code;
+    String? timezone;
 
     Country({
         this.name,
@@ -115,71 +117,71 @@ class Country {
     });
 
     factory Country.fromJson(Map<String, dynamic> json) => Country(
-        name: nameValues.map[json["name"]]!,
-        code: codeValues.map[json["code"]]!,
-        timezone: timezoneValues.map[json["timezone"]]!,
+        name: json["name"],
+        code: json["code"],
+        timezone: json["timezone"],
     );
 
     Map<String, dynamic> toJson() => {
-        "name": nameValues.reverse[name],
-        "code": codeValues.reverse[code],
-        "timezone": timezoneValues.reverse[timezone],
+        "name": name,
+        "code": code,
+        "timezone": timezone,
     };
 }
 
-enum Code {
-    CA,
-    DE,
-    FR,
-    GB,
-    JP,
-    US
-}
+// enum Code {
+//     CA,
+//     DE,
+//     FR,
+//     GB,
+//     JP,
+//     US
+// }
 
-final codeValues = EnumValues({
-    "CA": Code.CA,
-    "DE": Code.DE,
-    "FR": Code.FR,
-    "GB": Code.GB,
-    "JP": Code.JP,
-    "US": Code.US
-});
+// final codeValues = EnumValues({
+//     "CA": Code.CA,
+//     "DE": Code.DE,
+//     "FR": Code.FR,
+//     "GB": Code.GB,
+//     "JP": Code.JP,
+//     "US": Code.US
+// });
 
-enum Name {
-    CANADA,
-    FRANCE,
-    GERMANY,
-    JAPAN,
-    UNITED_KINGDOM,
-    UNITED_STATES
-}
+// enum Name {
+//     CANADA,
+//     FRANCE,
+//     GERMANY,
+//     JAPAN,
+//     UNITED_KINGDOM,
+//     UNITED_STATES
+// }
 
-final nameValues = EnumValues({
-    "Canada": Name.CANADA,
-    "France": Name.FRANCE,
-    "Germany": Name.GERMANY,
-    "Japan": Name.JAPAN,
-    "United Kingdom": Name.UNITED_KINGDOM,
-    "United States": Name.UNITED_STATES
-});
+// final nameValues = EnumValues({
+//     "Canada": Name.CANADA,
+//     "France": Name.FRANCE,
+//     "Germany": Name.GERMANY,
+//     "Japan": Name.JAPAN,
+//     "United Kingdom": Name.UNITED_KINGDOM,
+//     "United States": Name.UNITED_STATES
+// });
 
-enum Timezone {
-    AMERICA_HALIFAX,
-    AMERICA_NEW_YORK,
-    ASIA_TOKYO,
-    EUROPE_BUSINGEN,
-    EUROPE_LONDON,
-    EUROPE_PARIS
-}
+// enum Timezone {
+//     AMERICA_HALIFAX,
+//     AMERICA_NEW_YORK,
+//     ASIA_TOKYO,
+//     EUROPE_BUSINGEN,
+//     EUROPE_LONDON,
+//     EUROPE_PARIS
+// }
 
-final timezoneValues = EnumValues({
-    "America/Halifax": Timezone.AMERICA_HALIFAX,
-    "America/New_York": Timezone.AMERICA_NEW_YORK,
-    "Asia/Tokyo": Timezone.ASIA_TOKYO,
-    "Europe/Busingen": Timezone.EUROPE_BUSINGEN,
-    "Europe/London": Timezone.EUROPE_LONDON,
-    "Europe/Paris": Timezone.EUROPE_PARIS
-});
+// final timezoneValues = EnumValues({
+//     "America/Halifax": Timezone.AMERICA_HALIFAX,
+//     "America/New_York": Timezone.AMERICA_NEW_YORK,
+//     "Asia/Tokyo": Timezone.ASIA_TOKYO,
+//     "Europe/Busingen": Timezone.EUROPE_BUSINGEN,
+//     "Europe/London": Timezone.EUROPE_LONDON,
+//     "Europe/Paris": Timezone.EUROPE_PARIS
+// });
 
 class Externals {
     int? tvrage;
@@ -455,7 +457,6 @@ final statusValues = EnumValues({
 
 enum Type {
     ANIMATION,
-    // ignore: constant_identifier_names
     DOCUMENTARY,
     REALITY,
     SCRIPTED,

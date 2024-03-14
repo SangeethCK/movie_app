@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/application/home/home_controller.dart';
 import 'package:movie_app/application/movie_detail_controller.dart/movie_details_controller.dart';
 import 'package:movie_app/prsentation/widgets/image/custom_image.dart';
 import 'package:movie_app/prsentation/widgets/sizes.dart';
@@ -68,13 +67,28 @@ class ScreenMovieDetails extends StatelessWidget {
                       )
                     ],
                   ),
-                  Text(extractTextFromHtml(value.movieDetail?.summary ?? '')),
-                  Text(value.movieDetail?.language ?? ''),
-                  kHeight15,
-                  const Text(
-                    'Cast Details',
-                    style: TextStyle(fontWeight: FontWeight.w800),
+                  Row(
+                    children: [
+                      const Text('Language: '),
+                      Text(value.movieDetail?.language ?? ''),
+                    ],
                   ),
+                  Text(extractTextFromHtml(value.movieDetail?.summary ?? '')),
+                  kHeight15,
+                  const Row(
+                    children: [
+                      Text(
+                        'Top Cast',
+                        style: TextStyle(fontWeight: FontWeight.w800),
+                      ),
+                      kWidth15,
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 16,
+                      )
+                    ],
+                  ),
+                  kHeight10,
                   SizedBox(
                     height: 220,
                     child: Consumer<MovieDetailController>(
@@ -106,6 +120,12 @@ class ScreenMovieDetails extends StatelessWidget {
                                     fontSize: 13,
                                   ),
                                 ),
+                                Text(
+                                  data.character?.name ?? '',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
+                                )
                               ],
                             );
                           },

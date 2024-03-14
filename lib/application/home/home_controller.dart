@@ -31,6 +31,7 @@ class HomeController extends ChangeNotifier {
       final response = await HomeProvider().loadHome();
       if (response.isNotEmpty) {
         homeList = response;
+        notifyListeners();
       }
     } catch (e) {
       log('message');
@@ -39,6 +40,4 @@ class HomeController extends ChangeNotifier {
       notifyListeners();
     }
   }
-
- 
 }

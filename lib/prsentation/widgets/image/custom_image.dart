@@ -5,7 +5,7 @@ import 'package:movie_app/prsentation/widgets/shimmer/shimmer_widget.dart';
 
 class CustomImages extends StatelessWidget {
   const CustomImages({
-    Key? key,
+    super.key,
     required this.url,
     this.appendBaseUrl = true,
     this.width,
@@ -17,7 +17,7 @@ class CustomImages extends StatelessWidget {
     this.local = false,
     this.fit = BoxFit.cover,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   final String? url;
   final bool local;

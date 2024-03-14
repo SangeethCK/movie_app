@@ -6,7 +6,7 @@ class ShimmerChild extends StatelessWidget {
     super.key,
     this.width,
     this.height,
-    this.color = Colors.white,
+    this.color = Colors.grey,
     this.heightFactor,
     this.widthFactor,
     this.seperator,
